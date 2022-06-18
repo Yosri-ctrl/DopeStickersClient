@@ -6,11 +6,17 @@ import Announcement from '../Components/Announcement'
 import Footer from '../Components/Footer'
 import Nav from '../Components/Nav'
 import NewsLetter from '../Components/NewsLetter'
+import { mobile } from '../Responsive'
 
 const Container = styled.div``
 const Wrapper = styled.div`
     padding: 50px;
     display: flex;
+
+    ${mobile({
+        flexDirection: "column",
+        padding: "10px"
+    })}
 `
 const ImgContainer = styled.div`
     flex: 1;
@@ -19,10 +25,18 @@ const Img = styled.img`
     width: 100%;
     height: 100vh;
     object-fit: cover;
+
+    ${mobile({
+        height: "40vh"
+    })}
 `
 const Infocontainer = styled.div`
     flex: 1;
     padding: 0 50px;
+
+    ${mobile({
+        padding: "10px"
+    })}
 `
 const Title = styled.h1`
     font-weight: 200;
@@ -39,6 +53,10 @@ const FilterContainer = styled.div`
     margin: 30px 0px;
     display: flex;
     justify-content: space-between;
+
+    ${mobile({
+        width: "100%"
+    })}
 `
 const Filter = styled.div`
     display: flex;
@@ -66,6 +84,10 @@ const AddContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    ${mobile({
+        width: "100%"
+    })}
 ` 
 const AmountContainer = styled.div`
     display: flex;
@@ -102,7 +124,7 @@ const Product = () => {
             <Nav />
             <Wrapper>
                 <ImgContainer>
-                    <Img src="https://cdn141.picsart.com/338005751056211.png" />
+                    <Img src="https://mystickermania.com/cdn/stickers/anime/child-monkey-d-luffy-512x512.png" />
                 </ImgContainer>
                 <Infocontainer>
                     <Title>Naruto sticker</Title>

@@ -1,10 +1,15 @@
 import { AddCard, Email, Facebook, Instagram, LocationOn, Phone, Twitter } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../Responsive'
 
 const Container = styled.div`
     display: flex;
     justify-content: space-between;
+
+    ${mobile({
+        flexDirection: "column",
+    })}
 `
 const Left = styled.div`
     flex: 1;

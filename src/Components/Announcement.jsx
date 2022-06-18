@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const Announcement = () => {
     return (
-        <Container> Announcement Announcement Announcement Announcement </Container>
+        <Container> Announcement Announcement </Container>
     )
 }
 

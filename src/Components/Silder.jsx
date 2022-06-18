@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Sticker from '../Assets/Stick.png'
 import { slideItems } from '../data'
+import { mobile } from '../Responsive'
 
 const Container = styled.div`
     width: 100%;
@@ -11,6 +12,9 @@ const Container = styled.div`
     /* background-color: coral; */
     position: relative;
     overflow: hidden;
+    ${mobile({
+        display: "none",
+    })}
 `
 const Arrow = styled.div`
     width: 50px;
@@ -90,7 +94,7 @@ const Silder = () => {
                 {slideItems.map((item) => (
                     <Slide bg={item.bg} key={item.id}>
                         <ImgCont>
-                            <Img src={Sticker} key={item.id}/>
+                            <Img src={Sticker} key={item.id} />
                         </ImgCont>
                         <InfoCont>
                             <Title>{item.title}</Title>

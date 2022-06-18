@@ -5,6 +5,7 @@ import Footer from '../Components/Footer'
 import Nav from '../Components/Nav'
 import NewsLetter from '../Components/NewsLetter'
 import Products from '../Components/Products'
+import { mobile } from '../Responsive'
 
 const Container = styled.div``
 const Title = styled.h1`
@@ -13,6 +14,10 @@ const Title = styled.h1`
 const FilterContainer = styled.div`
     display: flex;
     justify-content: space-between;
+
+    ${mobile({
+        flexDirection: "column"
+    })}
 `
 const Filter = styled.div`
     margin: 20px;
@@ -25,6 +30,9 @@ const FillterText = styled.span`
 const Select = styled.select`
     padding: 10px;
     margin-right: 20px;
+    ${mobile({
+         padding: "5px"
+    })}
 `
 const Option = styled.option``
 

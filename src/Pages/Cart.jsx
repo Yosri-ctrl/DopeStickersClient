@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Announcement from '../Components/Announcement'
 import Footer from '../Components/Footer'
 import Nav from '../Components/Nav'
+import { mobile } from '../Responsive'
 
 const Container = styled.div`
 
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
     padding: 20px;
 `
 const Title = styled.h1`
-    font-weight: 300;
+    font-weight: 500;
     text-align: center;
 
 `
@@ -21,6 +22,10 @@ const Top = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+
+    ${mobile({
+        padding: "10px"
+    })}
 `
 const TopButton = styled.button`
     padding: 10px;
@@ -33,6 +38,9 @@ const TopButton = styled.button`
 `
 const TopTexts = styled.div`
     display: flex;
+    ${mobile({
+        display: "none"
+    })}
 `
 const TopText = styled.div`
     text-decoration: underline;
@@ -42,11 +50,13 @@ const TopText = styled.div`
 const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+
+    ${mobile({
+        flexDirection: "column"
+    })}
 `
 const Info = styled.div`
     flex: 3;
-    /* background-color: blue; */
-
 `
 
 const HR = styled.hr`
@@ -64,6 +74,11 @@ const Summary = styled.div`
 const Product = styled.div`
     display: flex;
     justify-content: space-between;
+
+    ${mobile({
+        flexDirection: "column",
+        padding: "5px"
+    })}
 `
 const ProcutDetail = styled.div`
     flex: 2;
@@ -93,6 +108,8 @@ const PriceDetail = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+   
 `
 const ProductAmountCont = styled.div`
     display: flex;
@@ -102,11 +119,19 @@ const ProductAmountCont = styled.div`
 const ProductAmount = styled.div`
     font-size: 24px;
     margin: 5px;
+
+    ${mobile({
+        margin: "10px 20px"
+    })}
 `
 const ProductPrice = styled.div`
     font-size: 30px;
     font-weight: 200;
-    `
+
+     ${mobile({
+        "margin-bottom": "10px"
+    })}
+`
 const TitleSummery = styled.h1`
     font-weight: 200;
 `
