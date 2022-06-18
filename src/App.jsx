@@ -7,10 +7,10 @@ import Register from "./Pages/Register";
 
 const App = () => {
   return <div>
-    {/* <Home /> */}
+    <Home />
     {/* <ProductList/> */}
     {/* <Product/> */}
-    <Register/>
+    {/* <Register/> */}
     {/* <Login/> */}
     {/* <Cart/>  */}
   </div>;
