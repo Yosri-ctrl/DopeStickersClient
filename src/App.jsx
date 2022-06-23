@@ -9,9 +9,9 @@ const App = () => {
   return <div>
     {/*<Home />*/} 
     {/* <ProductList/> */}
-    <Product/>
+    {/*<Product/>*/} 
     {/* <Register/> */}
-    {/* <Login/> */}
+    <Login/>
     {/* <Cart/>  */}
   </div>;
 };
