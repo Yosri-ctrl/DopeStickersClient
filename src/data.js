@@ -42,16 +42,19 @@ export const category = [
         id: 1,
         img: "https://i1.wp.com/roonby.com/wp-content/uploads/2022/01/cool-anime-wallpaper-hd.jpg?fit=1024%2C538&ssl=1",
         title: "Anime",
+        cat: 'anime'
     },
     {
         id: 2,
         img: "https://w0.peakpx.com/wallpaper/318/663/HD-wallpaper-movie-dune-2021-zendaya.jpg",
         title: "Movies",
+        cat: 'movie'
     },
     {
         id: 3,
         img: "https://play-lh.googleusercontent.com/hEQDYRyn7IaO6SkeYQEGCG7gqPxWvPaS6blpd3pCebjRlTT2AtzEacbEMrM5Jmt92roL=rw",
         title: "Games",
+        cat: 'game'
     }
 ]
 

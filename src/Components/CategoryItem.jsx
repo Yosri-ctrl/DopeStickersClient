@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { mobile } from '../Responsive'
 
@@ -15,8 +16,8 @@ const Img = styled.img`
     object-fit :cover;
 
     ${mobile({
-       height: "35vh"
-    })}
+    height: "35vh"
+})}
     
 `
 const Info = styled.div`
@@ -48,11 +49,13 @@ const Button = styled.button`
 const CategoryItem = ({ item }) => {
     return (
         <Container>
-            <Img src={item.img} />
-            <Info>
-                <Title>{item.title}</Title>
-                <Button>Shop Now</Button>
-            </Info>
+            <Link to={`/productlist/${item.cat}`}>
+                <Img src={item.img} />
+                <Info>
+                    <Title>{item.title}</Title>
+                    <Button>Shop Now</Button>
+                </Info>
+            </Link>
         </Container>
     )
 }
