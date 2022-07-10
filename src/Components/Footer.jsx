@@ -1,5 +1,4 @@
 import {
-  AddCard,
   Email,
   Facebook,
   Instagram,
@@ -14,7 +13,7 @@ import { mobile } from "../Responsive";
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-
+  background-color: #3b434b;
   ${mobile({
     flexDirection: "column",
   })}
@@ -25,9 +24,12 @@ const Left = styled.div`
   flex-direction: column;
   padding: 20px;
 `;
-const Logo = styled.h1``;
+const Logo = styled.h1`
+  color: #e8eaf6;
+`;
 const Desc = styled.p`
   margin: 20px 0;
+  color: #e8eaf6;
 `;
 const SocilContainer = styled.div`
   display: flex;
@@ -49,6 +51,7 @@ const Center = styled.div`
 `;
 const Titel = styled.h3`
   margin-bottom: 30px;
+  color: #e8eaf6;
 `;
 const List = styled.ul`
   margin: 0;
@@ -61,6 +64,7 @@ const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
   cursor: pointer;
+  color: #e8eaf6;
 `;
 
 const Right = styled.div`
@@ -71,6 +75,7 @@ const ContactItem = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  color: #e8eaf6;
 `;
 
 const Footer = () => {
@@ -121,7 +126,7 @@ const Footer = () => {
         <ContactItem>
           <Email style={{ paddingRight: "10px" }} /> dopesticker@gmail.com
         </ContactItem>
-        <AddCard />
+        {/* <AddCard /> */}
       </Right>
     </Container>
   );

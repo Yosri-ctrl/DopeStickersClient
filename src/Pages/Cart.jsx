@@ -2,7 +2,6 @@ import { Add, Remove } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Announcement from "../Components/Announcement";
 import Footer from "../Components/Footer";
 import Nav from "../Components/Nav";
 import { mobile } from "../Responsive";
@@ -13,10 +12,12 @@ import { useNavigate } from "react-router-dom";
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
+  background-color: #151719;
 `;
 const Title = styled.h1`
   font-weight: 500;
   text-align: center;
+  color: #e8eaf6;
 `;
 const Top = styled.div`
   display: flex;
@@ -28,26 +29,26 @@ const Top = styled.div`
     padding: "10px",
   })}
 `;
-const TopButton = styled.button`
-  padding: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  border: ${(props) => props.type === "filled" && "none"};
-  background-color: ${(props) =>
-    props.type === "filled" ? "black" : "transparent"};
-  color: ${(props) => props.type === "filled" && "white"};
-`;
-const TopTexts = styled.div`
-  display: flex;
-  ${mobile({
-    display: "none",
-  })}
-`;
-const TopText = styled.div`
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0 10px;
-`;
+// const TopButton = styled.button`
+//   padding: 10px;
+//   font-weight: 600;
+//   cursor: pointer;
+//   border: ${(props) => props.type === "filled" && "none"};
+//   background-color: ${(props) =>
+//     props.type === "filled" ? "black" : "transparent"};
+//   color: ${(props) => props.type === "filled" && "white"};
+// `;
+// const TopTexts = styled.div`
+//   display: flex;
+//   ${mobile({
+//     display: "none",
+//   })}
+// `;
+// const TopText = styled.div`
+//   text-decoration: underline;
+//   cursor: pointer;
+//   margin: 0 10px;
+// `;
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
@@ -62,18 +63,27 @@ const Info = styled.div`
 
 const Summary = styled.div`
   flex: 1;
-  border: 0.5px solid lightgray;
+  border: 0.5px solid #f4b4b4;
   border-radius: 10px;
   padding: 20px;
-  height: 50vh;
+  height: 30vh;
 `;
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 20px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  width: 60vw;
+  color: #000;
+  background-color: #c6cfda;
+
+  border-radius: 20px;
   ${mobile({
     flexDirection: "column",
-    padding: "5px",
+    // padding: "5px",
+    width: "88%",
+    padding: "20px 20px 0 20px",
+    "margin-left": "0px",
   })}
 `;
 const ProcutDetail = styled.div`
@@ -82,6 +92,9 @@ const ProcutDetail = styled.div`
 `;
 const Img = styled.img`
   width: 200px;
+  ${mobile({
+    width: "35vw",
+  })}
 `;
 const Details = styled.div`
   padding: 20px;
@@ -89,8 +102,15 @@ const Details = styled.div`
   flex-direction: column;
   justify-content: space-around;
 `;
-const ProductName = styled.span``;
-const ProductId = styled.span``;
+const ProductName = styled.span`
+  font-size: 25px;
+  font-weight: 600;
+`;
+const ProductId = styled.span`
+  ${mobile({
+    fontSize: "9px",
+  })}
+`;
 const ProductColor = styled.div`
   width: 20px;
   height: 20px;
@@ -114,35 +134,46 @@ const ProductAmount = styled.div`
   font-size: 24px;
   margin: 5px;
   ${mobile({
-    margin: "10px 20px",
+    margin: "0px 20px",
   })}
 `;
 const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
-
   ${mobile({
     "margin-bottom": "10px",
   })}
 `;
 const TitleSummery = styled.h1`
   font-weight: 200;
+  color: #e8eaf6;
 `;
 const SummeryItem = styled.div`
-  margin: 30px 0;
+  margin: 4vh 0;
   display: flex;
+  color: #e8eaf6;
   justify-content: space-between;
   font-size: ${(props) => props.total === "total" && "24px"};
   font-weight: ${(props) => props.total === "total" && "500"};
 `;
-const SummeryItemText = styled.span``;
+const SummeryItemText = styled.span`
+  margin: 0;
+`;
 const SummeryItemPrice = styled.span``;
 const Button = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: #000;
-  color: #fff;
   font-weight: 600;
+  border: 1px solid #f4b4b4;
+  border-radius: 10px;
+  background: transparent;
+  color: #e8eaf6;
+  font-family: sans;
+  font-size: 15px;
+  :hover {
+    background-color: #f4b4b4;
+    color: black;
+  }
 `;
 
 const KEY = process.env.REACT_APP_STRIPE_KEY;
@@ -161,7 +192,7 @@ const Cart = () => {
           tokenId: stripeK.id,
           amount: cart.totale * 100,
         });
-        navigate("/success", {data: res.data});
+        navigate("/success", { data: res.data });
       } catch (err) {
         console.log(err.response);
       }
@@ -171,17 +202,16 @@ const Cart = () => {
 
   return (
     <Container>
-      <Announcement />
       <Nav />
       <Wrapper>
         <Title>Your Cart</Title>
         <Top>
-          <TopButton>Continue Shoping</TopButton>
+          {/* <TopButton>Continue Shoping</TopButton>
           <TopTexts>
             <TopText>Shoping Bag (2)</TopText>
             <TopText>Wishlist (5)</TopText>
           </TopTexts>
-          <TopButton type="filled">Check Out</TopButton>
+          <TopButton type="filled">Check Out</TopButton> */}
         </Top>
         <Bottom>
           <Info>
@@ -190,12 +220,7 @@ const Cart = () => {
                 <ProcutDetail>
                   <Img src={product.img} />
                   <Details>
-                    <ProductName>
-                      Sticker Name:{" "}
-                      <b style={{ fontSize: "20px" }}>
-                        {product.title.toUpperCase()}
-                      </b>
-                    </ProductName>
+                    <ProductName>{product.title.toUpperCase()}</ProductName>
                     <ProductId>
                       <b>ID:</b> {product._id}
                     </ProductId>
@@ -206,14 +231,14 @@ const Cart = () => {
                   </Details>
                 </ProcutDetail>
                 <PriceDetail>
+                  <ProductPrice>
+                    $ {product.price * product.quantity}
+                  </ProductPrice>
                   <ProductAmountCont>
                     <Add />
                     <ProductAmount>{product.quantity}</ProductAmount>
                     <Remove />
                   </ProductAmountCont>
-                  <ProductPrice>
-                    $ {product.price * product.quantity}
-                  </ProductPrice>
                 </PriceDetail>
               </Product>
             ))}
@@ -224,14 +249,14 @@ const Cart = () => {
               <SummeryItemText>Subtotal</SummeryItemText>
               <SummeryItemPrice>$ {cart.totale}</SummeryItemPrice>
             </SummeryItem>
-            <SummeryItem>
+            {/* <SummeryItem>
               <SummeryItemText>Estimated Shipping</SummeryItemText>
               <SummeryItemPrice>$ 0</SummeryItemPrice>
             </SummeryItem>
             <SummeryItem>
               <SummeryItemText>Shipping Discount</SummeryItemText>
               <SummeryItemPrice>$ 0</SummeryItemPrice>
-            </SummeryItem>
+            </SummeryItem> */}
             <SummeryItem total="total">
               <SummeryItemText>Total</SummeryItemText>
               <SummeryItemPrice>$ {cart.totale}</SummeryItemPrice>

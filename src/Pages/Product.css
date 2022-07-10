@@ -1,4 +1,11 @@
 .button:hover {
-  background: lightskyblue;
+  background-color: #f4b4b4;
+  color: black;
   border-radius: 50%;
+}
+
+.button {
+  color: #e8eaf6;
+  color: black;
+
 }

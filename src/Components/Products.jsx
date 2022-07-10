@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-color: #151719;
 `;
 const Products = ({ cate, filter, sort }) => {
   const [product, setProduct] = useState([]);
@@ -21,7 +22,6 @@ const Products = ({ cate, filter, sort }) => {
             ? `http://localhost:5000/api/product?category=${cate}`
             : `http://localhost:5000/api/product`
         );
-        // console.log(res);
         setProduct(res.data);
       } catch (err) {
         console.log(err);

@@ -14,13 +14,14 @@ const Info = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
   cursor: pointer;
+  border-radius: 20px;
 `;
 const Container = styled.div`
   flex: 1;
@@ -30,9 +31,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5fbf5;
+  background-color: #c6cfda;
   position: relative;
-
+  border-radius: 20px;
   &:hover ${Info} {
     opacity: 1;
   }

@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Announcement from "../Components/Announcement";
 import Footer from "../Components/Footer";
 import Nav from "../Components/Nav";
 import NewsLetter from "../Components/NewsLetter";
@@ -16,6 +15,7 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  background-color: #151719;
 
   ${mobile({
     flexDirection: "column",
@@ -27,30 +27,41 @@ const ImgContainer = styled.div`
 `;
 const Img = styled.img`
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   object-fit: cover;
 
   ${mobile({
-    height: "40vh",
+    height: "50vh",
   })}
 `;
 const Infocontainer = styled.div`
   flex: 1;
-  padding: 0 50px;
-
+  margin-top: 70px;
+  padding: 50px 50px 0 50px;
+  height: 50vh;
+  background-color: #e8eaf6;
+  border-radius: 20px;
   ${mobile({
     padding: "10px",
   })}
 `;
 const Title = styled.h1`
-  font-weight: 200;
+  font-weight: 500;
+  font-family: sans;
+  font-size: 40px;
+  color: #151719;
 `;
 const Desc = styled.p`
   margin: 20px 0;
+  color: #151719;
+  font-size: 20px;
 `;
 const Price = styled.span`
   font-weight: 100;
   font-size: 40px;
+  display: flex;
+  float: right;
+  color: #151719;
 `;
 const FilterContainer = styled.div`
   width: 50%;
@@ -69,6 +80,7 @@ const Filter = styled.div`
 const FilterTitle = styled.span`
   font-size: 20px;
   font-weight: 200;
+  color: #151719;
 `;
 const FilterColor = styled.div`
   width: 20px;
@@ -81,6 +93,16 @@ const FilterColor = styled.div`
 const FilterSize = styled.select`
   margin: 10px;
   padding: 5px;
+  border: 1px solid #f4b4b4;
+  border-radius: 10px;
+  background: transparent;
+  color: #151719;
+  font-family: sans;
+  font-size: 15px;
+  :hover {
+    background-color: #f4b4b4;
+    color: black;
+  }
 `;
 const FilterSizeOption = styled.option``;
 const AddContainer = styled.div`
@@ -88,7 +110,6 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   ${mobile({
     width: "100%",
   })}
@@ -106,17 +127,24 @@ const Amount = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 5px;
+  border: 1px solid #f4b4b4;
+  border-radius: 10px;
+  margin: 10px;
+  color: #151719;
 `;
 const Button = styled.button`
   padding: 15px;
-  border: 1px solid teal;
-  background-color: #fff;
   cursor: pointer;
   font-weight: 500;
-
-  &:hover {
-    background-color: lightcyan;
+  border: 1px solid #f4b4b4;
+  border-radius: 10px;
+  background: transparent;
+  color: #151719;
+  font-family: sans;
+  font-size: 15px;
+  :hover {
+    background-color: #f4b4b4;
+    color: black;
   }
 `;
 
@@ -157,16 +185,16 @@ const Product = () => {
   // console.log(color, size);
   return (
     <Container>
-      <Announcement />
+      {/* <Announcement /> */}
       <Nav />
       <Wrapper>
         <ImgContainer>
           <Img src={product.img} />
         </ImgContainer>
         <Infocontainer>
-          <Title>{product.title}</Title>
-          <Desc>{product.desc}</Desc>
           <Price>$ {product.price}</Price>
+          <Title>{product.title?.toUpperCase()}</Title>
+          <Desc>{product.desc}</Desc>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>

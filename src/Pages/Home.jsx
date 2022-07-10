@@ -1,5 +1,5 @@
 import React from 'react'
-import Announcement from '../Components/Announcement'
+// import Announcement from '../Components/Announcement'
 import Categories from '../Components/Categories'
 import Footer from '../Components/Footer'
 import Nav from '../Components/Nav'
@@ -10,7 +10,7 @@ import Silder from '../Components/Silder'
 const Home = () => {
     return (
         <>
-            <Announcement/>
+            {/* <Announcement/> */}
             <Nav />
             <Silder/>
             <Categories/>

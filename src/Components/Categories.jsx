@@ -7,7 +7,8 @@ import { mobile } from '../Responsive'
 const Container = styled.div`
     display: flex;
     padding: 20px;
-    justify-content: space-between;
+    justify-content: space-between; 
+    background-color: #151719;
 
     ${mobile({
        padding: "10px",
