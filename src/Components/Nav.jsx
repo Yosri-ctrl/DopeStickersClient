@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -88,7 +87,7 @@ const MenuItem = styled.div`
 
   ${mobile({
     fontSize: "14px",
-    marginLeft: "15px",
+    marginLeft: "10px",
     marginTop: "5px",
   })}
 `;
@@ -117,7 +116,7 @@ const Nav = () => {
     textDecoration: "none",
     color: "#CDCECE",
     display: user ? "block" : "none",
-    cursor: "context-menu"
+    cursor: "context-menu",
   };
   return (
     <Container>
